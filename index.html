@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nokia 3310 Snake Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="phone-container">
+    <div class="nokia-phone">
+      <!-- Speaker grill at top -->
+      <div class="speaker-grill">
+        <span></span><span></span><span></span>
+      </div>
+      
+      <!-- Brand header -->
+      <div class="brand-header">NOKIA</div>
+      
+      <!-- LCD Screen container -->
+      <div class="screen-container">
+        <div class="screen-glass">
+          <div class="screen-content" id="screen">
+            <!-- Screen status bar -->
+            <div class="screen-status-bar">
+              <div class="signal-indicator">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+                <div class="bar bar4"></div>
+                <div class="bar bar5"></div>
+              </div>
+              <div class="network-name">NOKIA</div>
+              <div class="battery-indicator">
+                <div class="battery-level"></div>
+                <div class="battery-tip"></div>
+              </div>
+            </div>
+            
+            <!-- Screen Main Area -->
+            <div class="screen-main" id="screen-main">
+              <!-- Menu Screen -->
+              <div id="menu-screen" class="screen-view">
+                <div class="menu-title">SNAKE II</div>
+                <div class="menu-snake-animation">
+                  <div class="pixel-snake">
+                    <div class="snake-seg"></div>
+                    <div class="snake-seg"></div>
+                    <div class="snake-seg"></div>
+                    <div class="snake-seg"></div>
+                    <div class="snake-seg"></div>
+                    <div class="snake-food"></div>
+                  </div>
+                </div>
+                <div class="menu-options">
+                  <div class="menu-option active" data-option="play">1 PLAY</div>
+                  <div class="menu-option" data-option="highscores">2 HIGH SCORE</div>
+                  <div class="menu-option" data-option="controls">3 CONTROLS</div>
+                </div>
+                <div class="menu-footer">Press Menu or 5</div>
+              </div>
+              
+              <!-- Game Screen -->
+              <div id="game-screen" class="screen-view hidden">
+                <div class="game-header">
+                  <span id="score-label">Score:0000</span>
+                  <span id="highscore-label">HI:0000</span>
+                </div>
+                <canvas id="game-canvas" width="200" height="150"></canvas>
+              </div>
+              
+              <!-- Game Over Screen -->
+              <div id="gameover-screen" class="screen-view hidden">
+                <div class="go-title">GAME OVER</div>
+                <div class="go-score">SCORE: <span id="final-score">0</span></div>
+                <div class="go-highscore" id="new-highscore-msg">NEW HIGH SCORE!</div>
+                <div class="go-retry">Press 5 to Retry</div>
+                <div class="go-menu">Press C for Menu</div>
+              </div>
+              
+              <!-- High Scores Screen -->
+              <div id="highscores-screen" class="screen-view hidden">
+                <div class="screen-title">HIGH SCORE</div>
+                <div class="score-list">
+                  <div class="score-item">1. <span id="hs-val-1">0000</span></div>
+                  <div class="score-item">2. <span id="hs-val-2">0000</span></div>
+                  <div class="score-item">3. <span id="hs-val-3">0000</span></div>
+                </div>
+                <div class="screen-footer">Press C to back</div>
+              </div>
+              
+              <!-- Controls Screen -->
+              <div id="controls-screen" class="screen-view hidden">
+                <div class="screen-title">CONTROLS</div>
+                <div class="controls-info">
+                  <div>2 / ▲: Move Up</div>
+                  <div>4 / ◄: Move Left</div>
+                  <div>6 / ►: Move Right</div>
+                  <div>8 / ▼: Move Down</div>
+                  <div>5 / ENTER: Start/Select</div>
+                  <div>C / ESC: Back/Pause</div>
+                </div>
+                <div class="screen-footer">Press C to back</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Keypad area -->
+      <div class="keypad-container">
+        <!-- Bezel top buttons -->
+        <div class="top-buttons">
+          <button class="nokia-btn key-menu" id="btn-menu" aria-label="Menu / Select"></button>
+          <button class="nokia-btn key-c" id="btn-c" aria-label="Clear / Back">C</button>
+          <div class="scroll-keys">
+            <button class="nokia-btn key-scroll-up" id="btn-scroll-up" aria-label="Scroll Up">▲</button>
+            <button class="nokia-btn key-scroll-down" id="btn-scroll-down" aria-label="Scroll Down">▼</button>
+          </div>
+        </div>
+        
+        <!-- Numeric keypad grid -->
+        <div class="numeric-keypad">
+          <button class="nokia-btn num-key" id="btn-1" data-key="1">
+            <span class="num">1</span><span class="letters">o_o</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-2" data-key="2">
+            <span class="num">2</span><span class="letters">abc</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-3" data-key="3">
+            <span class="num">3</span><span class="letters">def</span>
+          </button>
+          
+          <button class="nokia-btn num-key" id="btn-4" data-key="4">
+            <span class="num">4</span><span class="letters">ghi</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-5" data-key="5">
+            <span class="num">5</span><span class="letters">jkl</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-6" data-key="6">
+            <span class="num">6</span><span class="letters">mno</span>
+          </button>
+          
+          <button class="nokia-btn num-key" id="btn-7" data-key="7">
+            <span class="num">7</span><span class="letters">pqrs</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-8" data-key="8">
+            <span class="num">8</span><span class="letters">tuv</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-9" data-key="9">
+            <span class="num">9</span><span class="letters">wxyz</span>
+          </button>
+          
+          <button class="nokia-btn num-key" id="btn-asterisk" data-key="*">
+            <span class="num">*</span><span class="letters">+</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-0" data-key="0">
+            <span class="num">0</span><span class="letters">_</span>
+          </button>
+          <button class="nokia-btn num-key" id="btn-hash" data-key="#">
+            <span class="num">#</span><span class="letters">⇧</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Brand model text at bottom -->
+      <div class="phone-model">3310</div>
+    </div>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "nokia-snake-game",
+  "version": "1.0.0",
+  "description": "Retro Nokia 3310 Snake game with Playwright tests",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx http-server -p 8080",
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "http-server": "^14.1.1"
+  }
+}

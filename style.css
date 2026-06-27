@@ -1,0 +1,488 @@
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background: radial-gradient(circle, #2c3e50, #0f171e);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.phone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* Nokia 3310 Outer Frame */
+.nokia-phone {
+  background: linear-gradient(135deg, #1b3a4b 0%, #112530 100%);
+  width: 360px;
+  height: 650px;
+  border-radius: 45px 45px 75px 75px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    inset 0 4px 6px rgba(255, 255, 255, 0.15),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.4);
+  border: 4px solid #112530;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Speaker Grill */
+.speaker-grill {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.speaker-grill span {
+  width: 25px;
+  height: 5px;
+  background-color: #0c151c;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* NOKIA Brand Header */
+.brand-header {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #c5d6e0;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 12px;
+}
+
+/* Bezel around the Screen */
+.screen-container {
+  background: linear-gradient(to bottom, #d2d7df 0%, #a2a8b2 100%);
+  width: 90%;
+  padding: 15px 18px 25px 18px;
+  border-radius: 25px 25px 35px 35px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px white,
+    inset 0 -2px 4px rgba(0,0,0,0.2);
+  border: 1px solid #7f8c8d;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.screen-glass {
+  background-color: #101010;
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Green LCD Screen styling */
+.screen-content {
+  background-color: #8c9c72; /* Nokia Greenish-Gray Backlight */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 2px 2px; /* Pixel grid grid overlay */
+  width: 100%;
+  height: 180px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  font-family: 'VT323', monospace;
+  color: #1b2612; /* Inverted pixel color */
+  border-radius: 4px;
+  box-shadow: inset 0px 3px 5px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* Status Bar */
+.screen-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 16px;
+  border-bottom: 1px solid #1b2612;
+  padding-bottom: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.network-name {
+  font-size: 14px;
+  line-height: 10px;
+}
+
+.signal-indicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  height: 10px;
+}
+
+.signal-indicator .bar {
+  width: 2px;
+  background-color: #1b2612;
+}
+.bar1 { height: 2px; }
+.bar2 { height: 4px; }
+.bar3 { height: 6px; }
+.bar4 { height: 8px; }
+.bar5 { height: 10px; }
+
+.battery-indicator {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 16px;
+  height: 8px;
+  border: 1px solid #1b2612;
+}
+
+.battery-level {
+  height: 100%;
+  width: 80%;
+  background-color: #1b2612;
+}
+
+.battery-tip {
+  position: absolute;
+  right: -2px;
+  top: 2px;
+  width: 1px;
+  height: 2px;
+  background-color: #1b2612;
+}
+
+/* Screen Main Screens */
+.screen-main {
+  flex-grow: 1;
+  position: relative;
+}
+
+.screen-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Menu View */
+.menu-title {
+  text-align: center;
+  font-size: 24px;
+  line-height: 20px;
+  margin-top: 4px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.menu-snake-animation {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Animated Menu Snake CSS */
+.pixel-snake {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.snake-seg {
+  width: 6px;
+  height: 6px;
+  background-color: #1b2612;
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.snake-food {
+  width: 5px;
+  height: 5px;
+  background-color: #1b2612;
+  border-radius: 50%;
+  margin-left: 20px;
+  animation: food-pulse 1.2s infinite;
+}
+
+@keyframes food-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px 10px;
+}
+
+.menu-option {
+  font-size: 16px;
+  line-height: 14px;
+  padding: 1px 6px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.menu-option.active {
+  background-color: #1b2612;
+  color: #8c9c72;
+}
+
+.menu-footer, .screen-footer {
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px dotted #1b2612;
+  padding-top: 1px;
+}
+
+/* Game View */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 12px;
+  padding: 2px 4px;
+  border-bottom: 1px dotted #1b2612;
+}
+
+#game-canvas {
+  flex-grow: 1;
+  background-color: transparent;
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* Game Over View */
+.go-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.go-score, .go-highscore {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.go-highscore {
+  color: #1b2612;
+  font-weight: bold;
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.go-retry, .go-menu {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.go-menu {
+  margin-top: 2px;
+}
+
+/* High Scores View */
+.screen-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  border-bottom: 1px solid #1b2612;
+  padding-bottom: 2px;
+}
+
+.score-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px 30px;
+}
+
+.score-item {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Controls View */
+.controls-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 11px;
+}
+
+/* Keypad Section */
+.keypad-container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.nokia-btn {
+  background: linear-gradient(135deg, #a6b1ba 0%, #7e8b96 100%);
+  color: #1a252f;
+  border: 1px solid #626e7a;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 
+    0 4px 5px rgba(0,0,0,0.4),
+    inset 0 1px 2px white;
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+.nokia-btn:active, .nokia-btn.pressed {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 
+    0 1px 2px rgba(0,0,0,0.4),
+    inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Navigation Bezel Top Buttons */
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  position: relative;
+}
+
+/* Nokia Left Blue Menu Key */
+.key-menu {
+  width: 80px;
+  height: 38px;
+  border-radius: 20px 4px 15px 4px;
+  background: linear-gradient(135deg, #3498db 0%, #1f4f72 100%);
+  color: white;
+  border: 1px solid #1f4f72;
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.4),
+    inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+.key-menu::before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 4px;
+  background-color: white;
+  margin: auto;
+  border-radius: 2px;
+}
+
+/* Nokia Right Clear Key */
+.key-c {
+  width: 80px;
+  height: 38px;
+  border-radius: 4px 20px 4px 15px;
+  font-size: 16px;
+}
+
+/* Scroll Keys Up/Down */
+.scroll-keys {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+}
+
+.key-scroll-up, .key-scroll-down {
+  width: 44px;
+  height: 25px;
+  border-radius: 12px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Numeric Keypad Grid */
+.numeric-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 25px;
+  width: 90%;
+  margin-top: 5px;
+}
+
+.num-key {
+  height: 48px;
+  border-radius: 18px / 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+.num-key .num {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.num-key .letters {
+  font-size: 8px;
+  color: #4a5768;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Brand Model footer text */
+.phone-model {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: #34495e;
+  margin-top: 15px;
+  letter-spacing: 2px;
+}
